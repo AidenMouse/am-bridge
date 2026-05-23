@@ -1078,7 +1078,6 @@ Some data should not be trusted from the client. Use a server export or the call
 - This resource is intended to be edited and extended.
 - Framework-specific code should stay inside adapter files.
 - Third-party scripts must be written for AM-Bridge or converted to AM-Bridge exports before they are fully bridge-compatible.
-- This project should be tested on your own server setup before public production use.
 
 ## Credits
 
