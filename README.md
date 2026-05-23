@@ -293,6 +293,9 @@ Example AI prompt:
 ```text
 Convert this FiveM script to use AM-Bridge.
 
+Use this GitHub repository as the AM-Bridge reference:
+https://github.com/AidenMouse/am-bridge
+
 Rules:
 - Do not use direct QBCore, Qbox, unc_core, ox_inventory, qb-inventory, or notification calls unless absolutely required.
 - Use exports['am-bridge'] for player data, identifiers, jobs, money, inventory, notifications, and callbacks.
