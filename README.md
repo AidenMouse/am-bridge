@@ -284,6 +284,21 @@ Most player data, money, and inventory operations should be called server-side f
 
 If you want your own resource to work across `unc_core`, Qbox, QBCore, and standalone setups, build it against AM-Bridge instead of calling a framework directly.
 
+You can also freely use AI tools to help convert your script to AM-Bridge. Paste your script code into your preferred AI assistant and ask it to replace direct framework, inventory, and notification calls with AM-Bridge exports.
+
+Example AI prompt:
+
+```text
+Convert this FiveM script to use AM-Bridge.
+
+Rules:
+- Do not use direct QBCore, Qbox, unc_core, ox_inventory, qb-inventory, or notification calls unless absolutely required.
+- Use exports['am-bridge'] for player data, identifiers, jobs, money, inventory, notifications, and callbacks.
+- Keep all money and inventory changes server-side.
+- Do not add ESX support.
+- Keep the code clean and beginner-friendly.
+```
+
 ### 1. Add AM-Bridge as a Dependency
 
 In your script's `fxmanifest.lua`, add:
