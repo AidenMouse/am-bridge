@@ -1,0 +1,53 @@
+# AM-Bridge server.cfg examples
+#
+# AM-Bridge must start after your framework/inventory resources and before
+# scripts that use AM-Bridge exports.
+
+########################################
+# unc_core setup
+########################################
+
+ensure ox_lib
+ensure oxmysql
+ensure unc_core
+ensure am-bridge
+
+# Your AM-Bridge scripts go after this.
+# ensure my-script
+
+########################################
+# unc_core with ox_inventory
+########################################
+
+# ensure ox_lib
+# ensure oxmysql
+# ensure unc_core
+# ensure ox_inventory
+# ensure am-bridge
+# ensure my-script
+
+########################################
+# Qbox setup
+########################################
+
+# ensure qbx_core
+# ensure ox_lib
+# ensure ox_inventory
+# ensure am-bridge
+# ensure my-script
+
+########################################
+# QBCore setup
+########################################
+
+# ensure qb-core
+# ensure qb-inventory
+# ensure am-bridge
+# ensure my-script
+
+########################################
+# Standalone setup
+########################################
+
+# ensure am-bridge
+# ensure my-script

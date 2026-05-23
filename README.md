@@ -1,10 +1,31 @@
 # AM-Bridge
 
+![AM-Bridge Banner](assets/am_bridge.png)
+
 A clean, modular framework bridge for FiveM resources.
 
 AM-Bridge helps developers write one script that can support multiple server setups without rewriting the core logic for every framework, inventory, or notification system.
 
 It is built to be simple, readable, and easy to extend.
+
+AM-Scripts store: [https://am-scripts.tebex.io/](https://am-scripts.tebex.io/)
+
+## Important Script Support Notice
+
+AM-Bridge does not automatically convert every third-party FiveM script.
+
+For a script to use AM-Bridge, it must either be written for AM-Bridge or converted to use AM-Bridge exports. Random QBCore, Qbox, ox, or standalone scripts may still use direct framework calls internally. Those scripts may need small edits before they become fully bridge-compatible.
+
+The goal of AM-Bridge is to give developers one clean API to build against:
+
+```lua
+exports['am-bridge']:GetIdentifier(source)
+exports['am-bridge']:GetJob(source)
+exports['am-bridge']:HasItem(source, 'lockpick', 1)
+exports['am-bridge']:Notify(source, 'Done.', 'success', 5000)
+```
+
+If your script uses AM-Bridge exports for framework, inventory, money, callbacks, and notifications, it becomes much easier to run across supported setups.
 
 ## Features
 
@@ -137,6 +158,11 @@ am-bridge/
   fxmanifest.lua
   config.lua
   README.md
+  LICENSE
+  assets/
+    am_bridge.png
+  docs/
+    server.cfg.example
   shared/
     main.lua
     adapters/
@@ -161,6 +187,13 @@ am-bridge/
     main.lua
   examples/
     example.lua
+    am-bridge-example/
+      fxmanifest.lua
+      config.lua
+      client/
+        main.lua
+      server/
+        main.lua
 ```
 
 ## Installation
@@ -174,6 +207,12 @@ am-bridge
 ```
 
 4. Add it to your `server.cfg` after your framework and inventory resources, but before scripts that use AM-Bridge.
+
+A complete start-order example is included here:
+
+```text
+docs/server.cfg.example
+```
 
 ### Qbox Example
 
@@ -645,6 +684,36 @@ end)
 
 ## Example Resource Usage
 
+AM-Bridge includes a complete example resource:
+
+```text
+examples/am-bridge-example/
+```
+
+The example resource shows:
+
+- How to add `am-bridge` as a dependency
+- How to use AM-Bridge from a server file
+- How to use AM-Bridge from a client file
+- How to check an item
+- How to remove an item
+- How to give money
+- How to send notifications
+
+To test it, copy `examples/am-bridge-example` into your resources folder and start it after AM-Bridge:
+
+```cfg
+ensure am-bridge
+ensure am-bridge-example
+```
+
+Commands:
+
+```text
+/ambridge_client_test
+/ambridge_server_test
+```
+
 This is an example server-side event using AM-Bridge.
 
 ```lua
@@ -923,6 +992,29 @@ Standalone inventory fallback returns `false` because there is no real inventory
 - Do not edit every script for each framework. Add or update an adapter instead.
 - Keep framework-specific logic inside adapter files only.
 
+## Contributing
+
+Contributions are welcome, especially:
+
+- New framework adapters
+- New inventory adapters
+- New notification adapters
+- Documentation improvements
+- Bug fixes
+- Compatibility notes from real server testing
+
+Please keep contributions clean, readable, and beginner-friendly. Framework-specific logic should stay inside adapter files so normal scripts can continue using the same AM-Bridge exports.
+
+## Branding
+
+The AM-Bridge banner is included at:
+
+```text
+assets/am_bridge.png
+```
+
+You can use it in GitHub posts, documentation, and AM-Bridge previews. More branding assets may be added later.
+
 ## Troubleshooting
 
 ### AM-Bridge detects standalone
@@ -983,6 +1075,8 @@ Some data should not be trusted from the client. Use a server export or the call
 - This resource does not include a paid licensing system.
 - This resource is intended to be edited and extended.
 - Framework-specific code should stay inside adapter files.
+- Third-party scripts must be written for AM-Bridge or converted to AM-Bridge exports before they are fully bridge-compatible.
+- This project should be tested on your own server setup before public production use.
 
 ## Credits
 
@@ -994,6 +1088,4 @@ AM-Scripts / AidenMouse
 
 ## License
 
-Copyright (c) AM-Scripts / AidenMouse.
-
-This resource is provided as source code for use in FiveM servers. If you plan to redistribute modified versions, include clear credit to AM-Scripts / AidenMouse.
+See [LICENSE](LICENSE).

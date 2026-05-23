@@ -3,7 +3,7 @@ Config = Config or {}
 Config.Debug = true
 
 -- Framework detection order. The first active adapter wins.
--- Supported by default: qbx_core, qb-core, standalone.
+-- Supported by default: unc_core, qbx_core, qb-core, standalone.
 Config.FrameworkPriority = {
     'unc',
     'qbox',
@@ -12,7 +12,7 @@ Config.FrameworkPriority = {
 }
 
 -- Inventory detection order. The first active adapter wins.
--- Supported by default: ox_inventory, qb-inventory, standalone.
+-- Supported by default: ox_inventory, qb-inventory, unc_core fallback, standalone.
 Config.InventoryPriority = {
     'ox',
     'qb',
@@ -21,7 +21,7 @@ Config.InventoryPriority = {
 }
 
 -- Notification detection order. The first active adapter wins.
--- Supported by default: ox_lib, QBCore notify, standalone chat.
+-- Supported by default: unc_core notify, ox_lib, QBCore notify, standalone chat.
 Config.NotificationPriority = {
     'unc',
     'ox',
