@@ -59,6 +59,8 @@ Frameworks outside this list are not included by default. You can add your own w
 
 `unc_core` is supported as a first-class framework adapter.
 
+`unc_core` is a custom FiveM framework created by [Unova Customs UNC](https://github.com/Unova-Customs-UNC). AidenMouse has part ownership of the framework/project.
+
 When `unc_core` is running, AM-Bridge can use it for:
 
 - Player objects
