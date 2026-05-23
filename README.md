@@ -1,6 +1,8 @@
 # AM-Bridge
 
-![AM-Bridge Banner](assets/am_bridge.png)
+<p align="center">
+  <img src="assets/am_bridge.png" alt="AM-Bridge Logo" width="360">
+</p>
 
 A clean, modular framework bridge for FiveM resources.
 
